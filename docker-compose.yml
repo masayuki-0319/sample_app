@@ -1,5 +1,9 @@
 version: '3'
 services:
+  datastore:
+    image: busybox
+    volumes:
+      - bundle_install:/usr/local/bundle
   app:
     build:
       context: .
@@ -8,6 +12,9 @@ services:
       - 3000:3000
     command: bundle exec rails s -p 3000 -b 0.0.0.0
     volumes:
+      - bundle_install:/usr/local/bundle
       - ./:/app:cached
     stdin_open: true
     tty: true
+volumes:
+  bundle_install:
