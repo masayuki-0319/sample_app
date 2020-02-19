@@ -4,6 +4,16 @@ services:
     image: busybox
     volumes:
       - bundle_install:/usr/local/bundle
+      - db_data:/var/lib/postgresql/data
+  db:
+    image: postgres:12.2-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass
   app:
     build:
       context: .
@@ -14,7 +24,14 @@ services:
     volumes:
       - bundle_install:/usr/local/bundle
       - ./:/app:cached
+    depends_on:
+      - db
+    environment:
+      APP_DATABASE_HOST: db
+      APP_DATABASE_USERNAME: root
+      APP_DATABASE_PASSWORD: pass
     stdin_open: true
     tty: true
 volumes:
   bundle_install:
+  db_data:

@@ -4,7 +4,7 @@ ENV LANG C.UTF-8 \
     TZ Asia/Tokyo
 
 ENV BUILD_PACKAGES="build-base" \
-    DB_PACKAGES="sqlite-dev postgresql-dev" \
+    DB_PACKAGES="postgresql-dev" \
     RAILS_PACKAGES="tzdata nodejs imagemagick" \
     FAVORITE_PACKAGES="less"
 
