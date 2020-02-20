@@ -6,14 +6,13 @@ services:
       - bundle_install:/usr/local/bundle
       - db_data:/var/lib/postgresql/data
   db:
-    image: postgres:12.2-alpine
+    image: mysql:5.7
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/mysql
     ports:
-      - 5432:5432
+      - 3306:3306
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
   app:
     build:
       context: .
