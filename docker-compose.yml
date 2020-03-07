@@ -19,7 +19,7 @@ services:
       dockerfile: ./docker/Dockerfile
     ports:
       - 3000:3000
-    command: bundle exec rails s -p 3000 -b 0.0.0.0
+    # command: bundle exec rails s -p 3000 -b 0.0.0.0
     volumes:
       - bundle_install:/usr/local/bundle
       - ./:/app:cached
