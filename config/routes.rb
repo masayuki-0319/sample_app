@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get 'rd/:id', to: "shortener/shortened_urls#show", as: "shortener"
+
   resources :users do
     member do
       # /users/:id/ ...
