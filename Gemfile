@@ -21,6 +21,8 @@ gem 'jbuilder',     '2.7.0'
 
 gem 'mysql2',       '~> 0.4.4'
 
+gem 'shortener'
+
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'pry-rails'
