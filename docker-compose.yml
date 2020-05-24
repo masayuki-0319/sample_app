@@ -5,7 +5,7 @@ services:
     volumes:
       - bundle_install:/usr/local/bundle
       - db_data:/var/lib/postgresql/data
-      - localstack_data:/tmp/localstack
+      # - localstack_data:/tmp/localstack
   db:
     image: mysql:5.7
     volumes:
@@ -52,8 +52,8 @@ services:
       DATA_DIR: /tmp/localstack/data
     volumes:
       - ./docker/localstack/:/docker-entrypoint-initaws.d
-      - localstack_data:/tmp/localstack
+      # - localstack_data:/tmp/localstack
 volumes:
   bundle_install:
   db_data:
-  localstack_data:
+  # localstack_data:
