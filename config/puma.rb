@@ -15,4 +15,4 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection
 end
 
-worker_timeout 600
+worker_timeout 600 if Rails.env.development?
