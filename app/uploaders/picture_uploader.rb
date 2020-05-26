@@ -13,10 +13,4 @@ class PictureUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-
-  if Rails.env.development?
-    def url(*args)
-      super(*args).gsub(/localstack/, "localhost")
-    end
-  end
 end

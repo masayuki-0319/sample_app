@@ -9,4 +9,8 @@ CarrierWave.configure do |config|
     :path_style            => !Rails.env.production?,
   }
   config.fog_directory     =  ENV['S3_BUCKET_NAME']
+
+  if !Rails.env.production?
+    config.asset_host = "#{ENV['S3_ASSET_HOST']}/#{ENV['S3_BUCKET_NAME']}"
+  end
 end
