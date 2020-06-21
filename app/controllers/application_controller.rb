@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  rescue_from Application::NotPermittedError, with: :redirect_root_page
+
+  def redirect_root_page
+    redirect_to root_url, flash: { danger: "閲覧権限がありません" }
+  end
+
   def hello
     render html: 'hello, world!'
   end
