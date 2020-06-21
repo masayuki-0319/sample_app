@@ -95,7 +95,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
 
       raise Application::NotPermittedError, "あなたにリクエスト権限がありません" unless current_user?(@user)
-      # redirect_to(root_url) unless current_user?(@user)
     end
 
     def admin_user
